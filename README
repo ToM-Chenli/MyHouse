@@ -1,0 +1,16 @@
+##########################################
+对于该项目的一些说明：该项目主要应用于航空简报制作所需要的信息的爬取
+目前该项目包括两个python包：taf_report_hander、variflight_hander,下面一一解释其功能和使用的方法
+1、taf_report_hander包括两个python类型文件、一个json类型文件。
+   (1)collecter.py:该文件主要实现功能为小飞象航空气象网上爬取全国249个机场的实时的TAF报文，并将其存在在TAF.json中，TAF.json
+      在将代码执行完毕后自动生成在项目的目录中；该代码并非全部原创，部分参考了github上的开源代码，开源代码地址：https://github
+      .com/Clarmy/arp；
+   (2)ICAO.json：该文件中存储了机场的icao代码的中文对照，方便后期的翻译；
+   (3)main.py:该文件主要是将collecter.py中存储好的TAF.json进行解析和翻译，同时根据自身设置的阈值进行筛选，执行完毕后会自动生成
+      一个result.csv一个csv文件。
+2、variflight_hander中目前只包括一个python文件：
+   (1)main.py:主要是满足航空简报上的信息需求，爬取在飞常准网站上的一些统计的数字，在执行完毕后会生成一个data.csv的文件。
+
+
+注意事项：在运行taf_report_hander中的main文件时，需要首先运行一下collecter文件，确保在目录下存在TAF.json文件，不然会报错，找不到
+这个文件。
